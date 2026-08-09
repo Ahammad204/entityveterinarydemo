@@ -1,0 +1,12 @@
+# Entity Veterinary Hospital - Technical SEO Configuration
+# Domain: entityveterinary.com | Chattogram, Bangladesh
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /checkout/
+Disallow: /admin/
+
+# Sitemaps
+Sitemap: https://entityveterinary.com/sitemap.xml
