@@ -31,8 +31,19 @@ import { AnalyticsDashboardView } from './components/views/AnalyticsDashboardVie
 import { SitemapArchitectureView } from './components/views/SitemapArchitectureView';
 import { CartDrawer } from './components/shop/CartDrawer';
 import { CheckoutModal } from './components/shop/CheckoutModal';
+import { DoctorPortal } from './doctor-portal/DoctorPortal';
+
+const isDoctorPortal = () => {
+  if (typeof window !== 'undefined') {
+    return window.location.pathname.startsWith('/doctor');
+  }
+  return false;
+};
 
 export default function App() {
+  if (isDoctorPortal()) {
+    return <DoctorPortal />;
+  }
   const getInitialPage = (): Page => {
     if (typeof window !== 'undefined') {
       const path = window.location.pathname;

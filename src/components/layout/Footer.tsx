@@ -116,6 +116,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenBooking }) => 
                   </button>
                 </li>
               ))}
+              <li>
+                <a
+                  href="/doctor/login"
+                  className="hover:text-teal-400 transition-colors text-amber-400 hover:underline font-semibold"
+                >
+                  Doctor Portal ↗
+                </a>
+              </li>
             </ul>
           </div>
 
