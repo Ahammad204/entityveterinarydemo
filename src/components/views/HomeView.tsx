@@ -288,47 +288,6 @@ export const HomeView: React.FC<HomeViewProps> = ({
         </Container>
       </section>
 
-      {/* Executive Leadership Section */}
-      <section className="bg-slate-50/80 py-12 border-y border-slate-200">
-        <Container size="normal">
-          <SectionHeading
-            eyebrow="Executive Leadership"
-            title="Hospital Executive Leadership"
-            subtitle="Meet the founding officers guiding clinical standards and hospital operations at Entity Veterinary Hospital."
-            showDemoBadge={showDemoBadges}
-            demoNotice="Verified executive profiles"
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {DOCTORS.filter((d) => d.id === 'dr-partha' || d.id === 'dr-aslam').map((doctor) => (
-              <DoctorCard
-                key={doctor.id}
-                doctor={doctor}
-                onBookWithDoctor={(id) => onOpenBooking(undefined, id)}
-                onViewProfile={(id) => {
-                  if (onSelectDoctorDetail) {
-                    onSelectDoctorDetail(id);
-                  } else {
-                    onNavigate('doctors');
-                  }
-                }}
-                showDemoBadge={showDemoBadges}
-              />
-            ))}
-          </div>
-
-          <div className="mt-8 text-center">
-            <Button
-              variant="outline"
-              size="md"
-              icon={Users}
-              onClick={() => onNavigate('doctors')}
-            >
-              Meet Full Healthcare & Clinical Team
-            </Button>
-          </div>
-        </Container>
-      </section>
       <section>
         <Container size="normal">
           <div className="bg-gradient-to-r from-red-900 via-slate-900 to-red-950 text-white rounded-2xl p-8 border border-red-800/80 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">

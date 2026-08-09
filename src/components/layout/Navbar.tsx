@@ -14,7 +14,8 @@ import {
   Info,
   ChevronRight,
   ShieldCheck,
-  Globe
+  Globe,
+  HeartPulse
 } from 'lucide-react';
 
 export interface NavbarProps {
@@ -145,6 +146,14 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* Action CTAs */}
           <div className="hidden sm:flex items-center gap-2.5">
+            <a
+              href="/doctor/login"
+              className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-bold bg-amber-50 text-amber-700 border border-amber-200 rounded-lg hover:bg-amber-100 transition-colors"
+            >
+              <HeartPulse className="w-3.5 h-3.5" />
+              Doctor Portal
+            </a>
+
             <Button
               variant="outline"
               size="sm"
@@ -200,6 +209,14 @@ export const Navbar: React.FC<NavbarProps> = ({
             </nav>
 
             <div className="pt-3 border-t border-slate-200 space-y-2">
+              <a
+                href="/doctor/login"
+                className="flex items-center justify-center gap-2 w-full px-4 py-3 text-sm font-bold bg-amber-50 text-amber-700 border border-amber-200 rounded-xl hover:bg-amber-100 transition-colors"
+              >
+                <HeartPulse className="w-4 h-4" />
+                Doctor Portal (Demo)
+              </a>
+
               <Button
                 variant="primary"
                 size="lg"
