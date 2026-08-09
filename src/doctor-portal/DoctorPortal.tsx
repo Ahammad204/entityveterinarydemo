@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { AuthProvider, useAuth } from './context/AuthContext';
+import { AuthProvider } from './context/AuthContext';
 import { DoctorPortalLayout } from './layout/DoctorPortalLayout';
-import { DoctorLoginPage } from './pages/DoctorLoginPage';
 import { DoctorDashboard } from './pages/DoctorDashboard';
 import { PatientsPage } from './pages/PatientsPage';
 import { PatientDetailPage } from './pages/PatientDetailPage';
@@ -17,7 +16,6 @@ import { DoctorPortalPage } from './types';
 import { DEMO_NOTIFICATIONS } from './data/demoData';
 
 const DoctorPortalInner: React.FC = () => {
-  const { isAuthenticated } = useAuth();
   const [currentPage, setCurrentPage] = useState<DoctorPortalPage>('dashboard');
   const [selectedPatientId, setSelectedPatientId] = useState<string>('pat-milo');
 
@@ -26,10 +24,6 @@ const DoctorPortalInner: React.FC = () => {
     setCurrentPage(page);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
-
-  if (!isAuthenticated) {
-    return <DoctorLoginPage onLoginSuccess={() => setCurrentPage('dashboard')} />;
-  }
 
   const unreadCount = DEMO_NOTIFICATIONS.filter(n => !n.read).length;
 

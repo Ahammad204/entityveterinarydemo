@@ -150,7 +150,6 @@ export interface ScheduleSlot {
 }
 
 export type DoctorPortalPage =
-  | 'login'
   | 'dashboard'
   | 'patients'
   | 'patient-detail'

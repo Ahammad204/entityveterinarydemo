@@ -10,7 +10,6 @@ import {
   Clock,
   User,
   Bell,
-  LogOut,
   Menu,
   X,
   Stethoscope,
@@ -35,13 +34,8 @@ const NAV_ITEMS: { id: DoctorPortalPage; label: string; icon: React.ReactNode }[
 ];
 
 export const Sidebar: React.FC<SidebarProps> = ({ currentPage, onNavigate, notificationCount }) => {
-  const { doctor, logout } = useAuth();
+  const { doctor } = useAuth();
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  const navigate = (page: DoctorPortalPage) => {
-    onNavigate(page);
-    setMobileOpen(false);
-  };
 
   const sidebarContent = (
     <div className="flex flex-col h-full">
@@ -76,7 +70,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentPage, onNavigate, notif
           return (
             <button
               key={item.id}
-              onClick={() => navigate(item.id)}
+              onClick={() => { onNavigate(item.id); setMobileOpen(false); }}
               className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all ${
                 isActive
                   ? 'bg-teal-50 text-teal-700 border border-teal-200'
@@ -96,15 +90,15 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentPage, onNavigate, notif
         })}
       </nav>
 
-      {/* Logout */}
+      {/* Back to Main Site */}
       <div className="p-3 border-t border-slate-200/80">
-        <button
-          onClick={logout}
-          className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-500 hover:bg-red-50 hover:text-red-600 transition-all border border-transparent hover:border-red-200"
+        <a
+          href="/"
+          className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-500 hover:bg-slate-50 hover:text-slate-900 transition-all border border-transparent hover:border-slate-200"
         >
-          <LogOut className="w-5 h-5" />
-          <span>Sign Out</span>
-        </button>
+          <Stethoscope className="w-5 h-5" />
+          <span>Main Website</span>
+        </a>
       </div>
     </div>
   );

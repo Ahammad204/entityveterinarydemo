@@ -10,7 +10,6 @@ interface HeaderProps {
 }
 
 const PAGE_TITLES: Record<DoctorPortalPage, string> = {
-  login: 'Login',
   dashboard: 'Dashboard',
   patients: 'Patients',
   'patient-detail': 'Patient Record',
